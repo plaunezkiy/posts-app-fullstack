@@ -7,5 +7,8 @@ class Post(models.Model):
     pub_date = models.DateField("Publication Date", auto_now=True)
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name="posts")
 
+    class Meta:
+        ordering = ("-pub_date",)
+
     def __str__(self):
         return self.text
